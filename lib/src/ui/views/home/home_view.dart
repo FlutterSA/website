@@ -37,6 +37,15 @@ class HomeView extends StatelessWidget {
             ),
             child: CustomAppBar(
               scrollOffset: model.scrollOffset,
+              onTwitterPressed: () async {
+                await model.launchTwitter();
+              },
+              onGitHubPressed: () async {
+                await model.launchGitHub();
+              },
+              onInstagramPressed: () async {
+                await model.launchInstagram();
+              },
             ),
           ),
           body: CustomScrollView(

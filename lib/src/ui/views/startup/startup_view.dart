@@ -28,7 +28,9 @@ class _StartupViewState extends State<StartupView> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                AppLogo(),
+                AppLogo(
+                  radius: blockSize(context) * 15,
+                ),
                 verticalSpaceMedium(context),
                 CircularProgressIndicator(),
               ],

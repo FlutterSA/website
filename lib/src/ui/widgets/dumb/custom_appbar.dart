@@ -6,10 +6,16 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomAppBar extends StatelessWidget {
   final double scrollOffset;
+  final Function() onTwitterPressed;
+  final Function() onGitHubPressed;
+  final Function() onInstagramPressed;
 
   const CustomAppBar({
     Key key,
     this.scrollOffset = 0.0,
+    @required this.onTwitterPressed,
+    @required this.onGitHubPressed,
+    @required this.onInstagramPressed,
   }) : super(key: key);
 
   @override
@@ -23,14 +29,33 @@ class CustomAppBar extends StatelessWidget {
           .primaryColor
           .withOpacity((scrollOffset / 350).clamp(0, 1).toDouble()),
       child: Responsive(
-        mobile: _CustomAppBarMobile(),
-        desktop: _CustomAppBarDesktop(),
+        mobile: _CustomAppBarMobile(
+          onTwitterPressed: onTwitterPressed,
+          onGitHubPressed: onGitHubPressed,
+          onInstagramPressed: onInstagramPressed,
+        ),
+        desktop: _CustomAppBarDesktop(
+          onTwitterPressed: onTwitterPressed,
+          onGitHubPressed: onGitHubPressed,
+          onInstagramPressed: onInstagramPressed,
+        ),
       ),
     );
   }
 }
 
 class _CustomAppBarMobile extends StatelessWidget {
+  final Function() onTwitterPressed;
+  final Function() onGitHubPressed;
+  final Function() onInstagramPressed;
+
+  const _CustomAppBarMobile({
+    Key key,
+    @required this.onTwitterPressed,
+    @required this.onGitHubPressed,
+    @required this.onInstagramPressed,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -45,17 +70,17 @@ class _CustomAppBarMobile extends StatelessWidget {
               children: <Widget>[
                 _AppBarButton(
                   icon: FontAwesomeIcons.twitter,
-                  onTap: () => print('Twitter'),
+                  onTap: onTwitterPressed,
                 ),
-                horizontalSpaceXSmall(context),
-                _AppBarButton(
-                  icon: FontAwesomeIcons.github,
-                  onTap: () => print('GitHub'),
-                ),
+                // horizontalSpaceXSmall(context),
+                // _AppBarButton(
+                //   icon: FontAwesomeIcons.github,
+                //   onTap: onGitHubPressed,
+                // ),
                 horizontalSpaceXSmall(context),
                 _AppBarButton(
                   icon: FontAwesomeIcons.instagram,
-                  onTap: () => print('Instagram'),
+                  onTap: onInstagramPressed,
                 ),
               ],
             ),
@@ -67,6 +92,17 @@ class _CustomAppBarMobile extends StatelessWidget {
 }
 
 class _CustomAppBarDesktop extends StatelessWidget {
+  final Function() onTwitterPressed;
+  final Function() onGitHubPressed;
+  final Function() onInstagramPressed;
+
+  const _CustomAppBarDesktop({
+    Key key,
+    @required this.onTwitterPressed,
+    @required this.onGitHubPressed,
+    @required this.onInstagramPressed,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -81,17 +117,17 @@ class _CustomAppBarDesktop extends StatelessWidget {
               children: <Widget>[
                 _AppBarButton(
                   icon: FontAwesomeIcons.twitter,
-                  onTap: () => print('Twitter'),
+                  onTap: onTwitterPressed,
                 ),
-                horizontalSpaceXSmall(context),
-                _AppBarButton(
-                  icon: FontAwesomeIcons.github,
-                  onTap: () => print('GitHub'),
-                ),
+                // horizontalSpaceXSmall(context),
+                // _AppBarButton(
+                //   icon: FontAwesomeIcons.github,
+                //   onTap: onGitHubPressed,
+                // ),
                 horizontalSpaceXSmall(context),
                 _AppBarButton(
                   icon: FontAwesomeIcons.instagram,
-                  onTap: () => print('Instagram'),
+                  onTap: onInstagramPressed,
                 ),
               ],
             ),
