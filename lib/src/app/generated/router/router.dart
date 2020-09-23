@@ -4,8 +4,8 @@ import 'package:flutterdevsa_website/src/ui/views/home/home_view.dart';
 
 @AdaptiveAutoRouter(
   routes: <AutoRoute>[
-    AdaptiveRoute(page: StartupView, initial: true),
-    AdaptiveRoute(page: HomeView),
+    AdaptiveRoute(page: StartupView, path: "/loading", initial: true),
+    AdaptiveRoute(page: HomeView, path: "/"),
   ],
 )
 class $Router {}

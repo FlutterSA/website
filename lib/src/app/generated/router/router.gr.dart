@@ -12,8 +12,8 @@ import '../../../ui/views/home/home_view.dart';
 import '../../../ui/views/startup/startup_view.dart';
 
 class Routes {
-  static const String startupView = '/';
-  static const String homeView = '/home-view';
+  static const String startupView = '/loading';
+  static const String homeView = '/';
   static const all = <String>{
     startupView,
     homeView,
