@@ -77,7 +77,9 @@ class _ContentHeaderMobile extends StatelessWidget {
             children: <Widget>[
               Text(
                 featuredContent.title,
-                style: Theme.of(context).textTheme.headline5,
+                style: Theme.of(context).textTheme.headline5.copyWith(
+                      color: Colors.white,
+                    ),
               ),
               verticalSpaceXSmall(context),
               Row(
@@ -92,11 +94,14 @@ class _ContentHeaderMobile extends StatelessWidget {
                     onPressed: onMoreInfoPressed,
                     icon: const Icon(
                       FontAwesomeIcons.infoCircle,
+                      color: Colors.white,
                       size: 30.0,
                     ),
                     label: Text(
                       'More Info',
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.headline6.copyWith(
+                            color: Colors.white,
+                          ),
                     ),
                   ),
                 ],
@@ -161,6 +166,7 @@ class _ContentHeaderDesktop extends StatelessWidget {
                 featuredContent.title,
                 style: Theme.of(context).textTheme.headline3.copyWith(
                       fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
               ),
               verticalSpaceXSmall(context),
@@ -176,11 +182,14 @@ class _ContentHeaderDesktop extends StatelessWidget {
                     onPressed: onMoreInfoPressed,
                     icon: const Icon(
                       FontAwesomeIcons.infoCircle,
+                      color: Colors.white,
                       size: 30.0,
                     ),
                     label: Text(
                       'More Info',
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.headline6.copyWith(
+                            color: Colors.white,
+                          ),
                     ),
                   ),
                 ],

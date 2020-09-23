@@ -3,6 +3,7 @@ import 'package:flutterdevsa_website/src/ui/global/ui_helpers.dart';
 import 'package:flutterdevsa_website/src/ui/widgets/dumb/app_logo.dart';
 import 'package:flutterdevsa_website/src/ui/widgets/dumb/responsive.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:theme_mode_handler/theme_mode_handler.dart';
 
 class CustomAppBar extends StatelessWidget {
   final double scrollOffset;
@@ -81,6 +82,37 @@ class _CustomAppBarMobile extends StatelessWidget {
                 _AppBarButton(
                   icon: FontAwesomeIcons.instagram,
                   onTap: onInstagramPressed,
+                ),
+                horizontalSpaceSmall(context),
+                _AppBarButton(
+                  icon: ThemeModeHandler.of(context).themeMode ==
+                          ThemeMode.system
+                      ? FontAwesomeIcons.mobile
+                      : ThemeModeHandler.of(context).themeMode == ThemeMode.dark
+                          ? FontAwesomeIcons.sun
+                          : FontAwesomeIcons.moon,
+                  onTap: () {
+                    if (ThemeModeHandler.of(context).themeMode ==
+                        ThemeMode.system) {
+                      ThemeModeHandler.of(context)
+                          .saveThemeMode(ThemeMode.light);
+                      return;
+                    }
+
+                    if (ThemeModeHandler.of(context).themeMode ==
+                        ThemeMode.light) {
+                      ThemeModeHandler.of(context)
+                          .saveThemeMode(ThemeMode.dark);
+                      return;
+                    }
+
+                    if (ThemeModeHandler.of(context).themeMode ==
+                        ThemeMode.dark) {
+                      ThemeModeHandler.of(context)
+                          .saveThemeMode(ThemeMode.system);
+                      return;
+                    }
+                  },
                 ),
               ],
             ),
