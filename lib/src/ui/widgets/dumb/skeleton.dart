@@ -7,6 +7,7 @@ class Skeleton extends StatelessWidget {
   final Color backgroundColor;
   final String appBarTitle;
   final TextStyle appBarTitleStyle;
+  final PreferredSize appBar;
   final Widget body;
   final Widget floatingActionButton;
   final FloatingActionButtonAnimator floatingActionButtonAnimator;
@@ -23,6 +24,8 @@ class Skeleton extends StatelessWidget {
   final BoxConstraints constraints;
   final bool centerTitle;
   final String busyText;
+  final bool extendBody;
+  final bool extendBodyBehindAppBar;
 
   const Skeleton({
     Key key,
@@ -30,6 +33,7 @@ class Skeleton extends StatelessWidget {
     this.backgroundColor,
     this.appBarTitle,
     this.appBarTitleStyle,
+    this.appBar,
     @required this.body,
     this.floatingActionButton,
     this.floatingActionButtonAnimator,
@@ -46,6 +50,8 @@ class Skeleton extends StatelessWidget {
     this.constraints,
     this.centerTitle = false,
     this.busyText,
+    this.extendBody = false,
+    this.extendBodyBehindAppBar = false,
   }) : super(key: key);
 
   @override
@@ -59,29 +65,32 @@ class Skeleton extends StatelessWidget {
               FocusScope.of(context).requestFocus(FocusNode());
             },
             child: Scaffold(
-              appBar: appBarTitle != null || appBarTitleWidget != null
-                  ? AppBar(
-                      iconTheme: IconThemeData(
-                        color: Theme.of(context).accentColor,
-                      ),
-                      actionsIconTheme: IconThemeData(
-                        color: Theme.of(context).accentColor,
-                      ),
-                      leading: appBarLeading,
-                      actions: appBarActions,
-                      elevation: 5,
-                      centerTitle: centerTitle,
-                      title: appBarTitleWidget ??
-                          Text(
-                            appBarTitle,
-                            style: appBarTitleStyle ??
-                                TextStyle(
-                                  fontSize: blockSize(context) * 3,
-                                  fontWeight: FontWeight.bold,
-                                ),
+              extendBody: extendBody,
+              extendBodyBehindAppBar: extendBodyBehindAppBar,
+              appBar: appBar ??
+                  ((appBarTitle != null || appBarTitleWidget != null)
+                      ? AppBar(
+                          iconTheme: IconThemeData(
+                            color: Theme.of(context).accentColor,
                           ),
-                    )
-                  : null,
+                          actionsIconTheme: IconThemeData(
+                            color: Theme.of(context).accentColor,
+                          ),
+                          leading: appBarLeading,
+                          actions: appBarActions,
+                          elevation: 5,
+                          centerTitle: centerTitle,
+                          title: appBarTitleWidget ??
+                              Text(
+                                appBarTitle,
+                                style: appBarTitleStyle ??
+                                    TextStyle(
+                                      fontSize: blockSize(context) * 3,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
+                        )
+                      : null),
               body: SafeArea(
                 child: Container(
                   padding: bodyPadding ??
