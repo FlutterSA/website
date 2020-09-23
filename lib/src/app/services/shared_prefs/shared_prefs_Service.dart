@@ -1,7 +1,6 @@
+import 'package:flutterdevsa_website/src/app/utils/logger.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'package:flutterdevsa_website/src/app/utils/logger.dart';
 
 @lazySingleton
 class SharedPrefsService {
@@ -11,7 +10,7 @@ class SharedPrefsService {
     final SharedPreferences _sharedPreferences =
         await SharedPreferences.getInstance();
     log.d(
-      'saveValue | key: $key value: $value',
+      '(TRACE) LocalStorageService:_saveToDisk. key: $key value: $value',
     );
 
     if (value is String) {
@@ -38,7 +37,7 @@ class SharedPrefsService {
         await SharedPreferences.getInstance();
     var value = await _sharedPreferences.get(key);
     log.d(
-      'getValue | key: $key value: $value',
+      '(TRACE) LocalStorageService:_getFromDisk. key: $key value: $value',
     );
     return value;
   }
@@ -47,9 +46,6 @@ class SharedPrefsService {
     final SharedPreferences _sharedPreferences =
         await SharedPreferences.getInstance();
     bool result = await _sharedPreferences.remove(key);
-    log.d(
-      'removeValue | key: $key',
-    );
     return result;
   }
 }
