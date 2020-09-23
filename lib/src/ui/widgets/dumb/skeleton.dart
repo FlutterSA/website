@@ -83,21 +83,15 @@ class Skeleton extends StatelessWidget {
                     )
                   : null,
               body: SafeArea(
-                child: Center(
-                  child: Container(
-                    constraints: constraints ??
-                        BoxConstraints(
-                          maxWidth: 768.0,
-                        ),
-                    padding: bodyPadding ??
-                        EdgeInsets.fromLTRB(
-                          blockSize(context) * 2,
-                          blockSize(context) * 2,
-                          blockSize(context) * 2,
-                          blockSize(context) * 2,
-                        ),
-                    child: body,
-                  ),
+                child: Container(
+                  padding: bodyPadding ??
+                      EdgeInsets.fromLTRB(
+                        blockSize(context) * 2,
+                        blockSize(context) * 2,
+                        blockSize(context) * 2,
+                        blockSize(context) * 2,
+                      ),
+                  child: body,
                 ),
               ),
               floatingActionButton: floatingActionButton ?? null,

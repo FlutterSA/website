@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterdevsa_website/src/ui/widgets/dumb/app_logo.dart';
 import 'package:stacked/stacked.dart';
 import 'package:flutterdevsa_website/src/ui/widgets/dumb/skeleton.dart';
 import 'package:flutterdevsa_website/src/ui/global/ui_helpers.dart';
@@ -27,8 +28,7 @@ class _StartupViewState extends State<StartupView> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                // TODO(yazeed): Put Your Logo Here :)
-
+                AppLogo(),
                 verticalSpaceMedium(context),
                 CircularProgressIndicator(),
               ],
