@@ -64,6 +64,10 @@ class _CustomAppBarMobile extends StatelessWidget {
         children: <Widget>[
           AppLogo(),
           horizontalSpaceXSmall(context),
+          Text(
+            'Flutter SA',
+            style: Theme.of(context).textTheme.headline5,
+          ),
           const Spacer(),
           Expanded(
             child: Row(
@@ -142,6 +146,10 @@ class _CustomAppBarDesktop extends StatelessWidget {
         children: <Widget>[
           AppLogo(),
           horizontalSpaceXSmall(context),
+          Text(
+            'Flutter SA',
+            style: Theme.of(context).textTheme.headline5,
+          ),
           const Spacer(),
           Expanded(
             child: Row(
@@ -160,6 +168,37 @@ class _CustomAppBarDesktop extends StatelessWidget {
                 _AppBarButton(
                   icon: FontAwesomeIcons.instagram,
                   onTap: onInstagramPressed,
+                ),
+                horizontalSpaceSmall(context),
+                _AppBarButton(
+                  icon: ThemeModeHandler.of(context).themeMode ==
+                          ThemeMode.system
+                      ? FontAwesomeIcons.mobile
+                      : ThemeModeHandler.of(context).themeMode == ThemeMode.dark
+                          ? FontAwesomeIcons.sun
+                          : FontAwesomeIcons.moon,
+                  onTap: () {
+                    if (ThemeModeHandler.of(context).themeMode ==
+                        ThemeMode.system) {
+                      ThemeModeHandler.of(context)
+                          .saveThemeMode(ThemeMode.light);
+                      return;
+                    }
+
+                    if (ThemeModeHandler.of(context).themeMode ==
+                        ThemeMode.light) {
+                      ThemeModeHandler.of(context)
+                          .saveThemeMode(ThemeMode.dark);
+                      return;
+                    }
+
+                    if (ThemeModeHandler.of(context).themeMode ==
+                        ThemeMode.dark) {
+                      ThemeModeHandler.of(context)
+                          .saveThemeMode(ThemeMode.system);
+                      return;
+                    }
+                  },
                 ),
               ],
             ),
