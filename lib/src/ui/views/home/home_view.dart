@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterdevsa_website/src/app/models/content.dart';
-import 'package:flutterdevsa_website/src/app/models/supervisor.dart';
+import 'package:flutterdevsa_website/src/app/models/team_member.dart';
 import 'package:flutterdevsa_website/src/ui/global/ui_helpers.dart';
 import 'package:flutterdevsa_website/src/ui/widgets/dumb/app_logo.dart';
 import 'package:flutterdevsa_website/src/ui/widgets/dumb/content_header.dart';
@@ -73,19 +73,19 @@ class HomeView extends StatelessWidget {
                         left: 25.0,
                       ),
                       child: Text(
-                        'Supervisors:',
+                        'Team:',
                         style: Theme.of(context).textTheme.headline2,
                       ),
                     ),
                     GridView.builder(
                       shrinkWrap: true,
-                      itemCount: model.supervisorsList.length,
+                      itemCount: model.teamMembersList.length,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: Responsive.isDesktop(context) ? 4 : 2,
                         childAspectRatio: 1 / 1,
                       ),
                       itemBuilder: (BuildContext context, int index) {
-                        Supervisor supervisor = model.supervisorsList[index];
+                        TeamMember teamMember = model.teamMembersList[index];
                         return Container(
                           height: 250,
                           width: 250,
@@ -103,7 +103,7 @@ class HomeView extends StatelessWidget {
                                   radius:
                                       Responsive.isMobile(context) ? 40 : 75,
                                   backgroundImage: CachedNetworkImageProvider(
-                                    supervisor.photoUrl,
+                                    teamMember.photoUrl,
                                   ),
                                 ),
                                 verticalSpaceXSmall(context),
@@ -111,16 +111,19 @@ class HomeView extends StatelessWidget {
                                   padding: const EdgeInsets.all(5),
                                   child: FittedBox(
                                     child: Text(
-                                      '${supervisor.firstName} ${supervisor.lastName}',
+                                      '${teamMember.firstName} ${teamMember.lastName}',
                                       style:
                                           Theme.of(context).textTheme.headline5,
+                                      textAlign: TextAlign.center,
                                     ),
                                   ),
                                 ),
-                                Text(
-                                  '${supervisor.description}',
-                                  style: Theme.of(context).textTheme.caption,
-                                  textAlign: TextAlign.center,
+                                FittedBox(
+                                  child: Text(
+                                    '${teamMember.description}',
+                                    style: Theme.of(context).textTheme.caption,
+                                    textAlign: TextAlign.center,
+                                  ),
                                 ),
                               ],
                             ),
