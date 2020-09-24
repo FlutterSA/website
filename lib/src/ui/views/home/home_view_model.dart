@@ -36,7 +36,7 @@ class HomeViewModel extends CustomBaseViewModel {
       firstName: 'Mohammad',
       lastName: 'AlJasser',
       photoUrl: 'https://i.ibb.co/MPvvw0k/pp-3.jpg',
-      description: 'Flutter Developer • @YazeedAlKhalaf',
+      description: 'Flutter Developer • @justmo5',
     ),
     Supervisor(
       id: '2',
