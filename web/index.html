@@ -21,12 +21,22 @@
     <link rel="manifest" href="manifest.json" />
 
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      
       .loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
         border: 16px solid #f3f3f3;
         border-top: 16px solid #2eb556;
         border-radius: 50%;
-        width: 120px;
-        height: 120px;
+        width: 7.5rem;
+        height: 7.5rem;
+        margin-top: -5em;
+        margin-left: -5em;
         animation: spin 2s linear infinite;
       }
 

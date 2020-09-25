@@ -76,4 +76,16 @@ class HomeViewModel extends CustomBaseViewModel {
       url: 'https://www.instagram.com/flutterdevsa/',
     );
   }
+
+  Future launchYoutube() async {
+    await _urlLauncherService.launchUrl(
+      url: 'https://www.youtube.com/channel/UCm1ga4f12Slvw-hNU4kR0bQ',
+    );
+  }
+
+  Future launchMeetup() async {
+    await _urlLauncherService.launchUrl(
+      url: 'https://www.meetup.com/FlutterDevSAGroup/',
+    );
+  }
 }
